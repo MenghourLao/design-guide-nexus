@@ -25,6 +25,7 @@ const LAST_UPDATED = "June 2, 2026";
 const nav = [
   { id: "overview", label: "Overview" },
   { id: "logo", label: "Brand Logo" },
+  { id: "usage", label: "Brand Usage" },
   { id: "color", label: "Brand Color" },
   { id: "typography", label: "Typography" },
   { id: "product", label: "Product Specification" },
