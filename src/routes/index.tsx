@@ -129,8 +129,9 @@ function Guidelines() {
             </div>
 
             <a
-              href="#"
-              className="mt-4 flex items-center justify-between rounded-2xl px-5 py-4 gradient-brand text-white shadow-[0_10px_30px_-12px_rgba(100,68,216,0.55)] hover:opacity-95 transition"
+              href={bookmeBlack.url}
+              download
+              className="mt-4 flex items-center justify-between rounded-2xl px-5 py-4 bg-[color:var(--brand)] text-white hover:bg-[color:var(--brand-darker)] transition"
             >
               <div>
                 <div className="text-sm font-semibold">Download all assets</div>
