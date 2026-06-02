@@ -220,23 +220,65 @@ function Guidelines() {
               </div>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-border p-6 bg-card">
-              <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground mb-4">Usage Rules</div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-sm">
-                {[
-                  ["Do", "Use on solid, high-contrast backgrounds", true],
-                  ["Do", "Respect the clear-space margin", true],
-                  ["Don't", "Stretch, rotate, or recolor the wordmark", false],
-                  ["Don't", "Place on busy photography without a scrim", false],
-                ].map(([k, v, ok]) => (
-                  <div key={v as string} className="flex gap-3">
-                    <span className={`mt-0.5 text-xs font-bold px-2 py-0.5 rounded ${ok ? "bg-[color:var(--brand-lighter)] text-[color:var(--brand-darker)]" : "bg-red-50 text-red-600"}`}>
-                      {k}
-                    </span>
-                    <span className="text-foreground/80">{v}</span>
-                  </div>
-                ))}
+          </Section>
+
+          {/* Brand Usage */}
+          <Section id="usage" eyebrow="02 — Brand Element" title="Brand Usage">
+            <p className="text-base text-muted-foreground max-w-2xl mb-8">
+              Follow these rules to keep the BookMe+ wordmark consistent, legible, and on-brand
+              across every surface — product, marketing, and partner materials.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="rounded-2xl border border-border p-6 bg-card">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-xs font-bold px-2 py-0.5 rounded bg-[color:var(--brand-lighter)] text-[color:var(--brand-darker)]">DO</span>
+                  <span className="text-sm font-semibold text-foreground">Recommended</span>
+                </div>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  {[
+                    "Use on solid, high-contrast backgrounds",
+                    "Respect the clear-space margin (height of the 'B')",
+                    "Scale proportionally — keep the original aspect ratio",
+                    "Use the violet wordmark on light surfaces",
+                    "Use the white wordmark on dark or photographic surfaces",
+                  ].map((v) => (
+                    <li key={v} className="flex gap-2.5">
+                      <Check size={16} className="mt-0.5 text-[color:var(--brand)] shrink-0" />
+                      <span>{v}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
+
+              <div className="rounded-2xl border border-border p-6 bg-card">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-xs font-bold px-2 py-0.5 rounded bg-red-50 text-red-600">DON'T</span>
+                  <span className="text-sm font-semibold text-foreground">Avoid</span>
+                </div>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  {[
+                    "Stretch, skew, or rotate the wordmark",
+                    "Recolor with non-brand colors or gradients",
+                    "Place on busy photography without a scrim",
+                    "Add drop shadows, outlines, or 3D effects",
+                    "Crop, redraw, or reconstruct the logo",
+                  ].map((v) => (
+                    <li key={v} className="flex gap-2.5">
+                      <span className="mt-0.5 text-red-600 font-bold shrink-0">✕</span>
+                      <span>{v}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-border p-6 bg-card">
+              <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground mb-3">Minimum Size</div>
+              <p className="text-sm text-foreground/80 max-w-2xl">
+                To preserve legibility, never display the wordmark smaller than <span className="font-semibold text-foreground">24px</span> in
+                height on digital surfaces or <span className="font-semibold text-foreground">12mm</span> in print.
+              </p>
             </div>
           </Section>
 
