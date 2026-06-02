@@ -5,6 +5,7 @@ import bookmeBlack from "@/assets/bookme-logo.png.asset.json";
 import bookmeWhite from "@/assets/bookme-logo-dark.png.asset.json";
 import bookmeViolet from "@/assets/bookme-logo-violet.png.asset.json";
 import bookmeClearspace from "@/assets/bookme-clearspace.png.asset.json";
+import bookmeHero from "@/assets/bookme-hero.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -128,8 +129,9 @@ function Guidelines() {
             </div>
 
             <a
-              href="#"
-              className="mt-4 flex items-center justify-between rounded-2xl px-5 py-4 gradient-brand text-white shadow-[0_10px_30px_-12px_rgba(100,68,216,0.55)] hover:opacity-95 transition"
+              href={bookmeBlack.url}
+              download
+              className="mt-4 flex items-center justify-between rounded-2xl px-5 py-4 bg-[color:var(--brand)] text-white hover:bg-[color:var(--brand-darker)] transition"
             >
               <div>
                 <div className="text-sm font-semibold">Download all assets</div>
@@ -144,6 +146,9 @@ function Guidelines() {
         <main className="lg:col-span-7">
           {/* Overview */}
           <section id="overview" className="scroll-mt-28 pt-2 pb-12 border-b border-border">
+            <div className="rounded-3xl overflow-hidden mb-10 border border-border">
+              <img src={bookmeHero.url} alt="BookMe+ Design" className="w-full h-auto block" />
+            </div>
             <div className="text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--brand)] mb-4">BookMe+ Brand</div>
             <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.05]">
               Welcome to the BookMe+ brand identity site.
