@@ -5,6 +5,7 @@ import bookmeBlack from "@/assets/bookme-logo.png.asset.json";
 import bookmeWhite from "@/assets/bookme-logo-dark.png.asset.json";
 import bookmeViolet from "@/assets/bookme-logo-violet.png.asset.json";
 import bookmeClearspace from "@/assets/bookme-clearspace.png.asset.json";
+import bookmeHero from "@/assets/bookme-hero.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
