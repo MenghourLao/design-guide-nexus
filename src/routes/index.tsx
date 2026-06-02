@@ -151,9 +151,6 @@ function Guidelines() {
         <main className="lg:col-span-7">
           {/* Overview */}
           <section id="overview" className="scroll-mt-28 pt-2 pb-12 border-b border-border">
-            <div className="rounded-3xl overflow-hidden mb-10 border border-border">
-              <img src={bookmeHero.url} alt="BookMe+ Design" className="w-full h-auto block" />
-            </div>
             <div className="text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--brand)] mb-4">BookMe+ Brand</div>
             <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.05]">
               Welcome to the BookMe+ brand identity site.
