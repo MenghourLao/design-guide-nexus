@@ -51,9 +51,14 @@ function ProductSpec() {
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur border-b border-border">
         <div className="px-6 lg:px-10 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={bookmeBlack} alt="BookMe+" className="h-6 w-auto" />
+            <Link to="/" className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition mr-2">
+              <ArrowLeft size={14} />
+              <span className="hidden sm:inline">Home</span>
+            </Link>
+            <span className="text-border">|</span>
+            <img src={bookmeBlack} alt="BookMe+" className="h-6 w-auto ml-2" />
             <span className="hidden sm:inline text-xs text-muted-foreground border-l border-border pl-3 ml-1">
-              Brand Guidelines
+              Product Setup Specification
             </span>
           </div>
           <div className="flex items-center gap-3 text-xs text-muted-foreground">
@@ -67,14 +72,6 @@ function ProductSpec() {
         {/* Sidebar */}
         <aside className="lg:col-span-3">
           <div className="lg:sticky lg:top-24">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition mb-6"
-            >
-              <ArrowLeft size={14} />
-              Back to Guidelines
-            </Link>
-
             <div className="rounded-2xl border border-border p-6 bg-card">
               <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-4">On this page</div>
               <nav className="flex flex-col">
