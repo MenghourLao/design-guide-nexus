@@ -101,7 +101,7 @@ function Home() {
               ))}
             </div>
 
-            <div className="flex items-center justify-between text-sm font-medium text-foreground border-t border-border pt-5 mt-auto">
+            <div className="flex items-center justify-between text-sm font-medium text-foreground border-t pt-5 mt-auto" style={{ borderColor: "#f2f2f2" }}>
               <span>Open guidelines</span>
               <ArrowUpRight size={15} className="text-muted-foreground" />
             </div>
