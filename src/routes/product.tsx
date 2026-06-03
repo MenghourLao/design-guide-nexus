@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import bookmeWhite from "@/assets/images/bookme-logo-dark.png";
+import bookmeWhite from "@/assets/images/bookme-logo-new.png";
 
 export const Route = createFileRoute("/product")({
   head: () => ({

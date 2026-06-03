@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Download, ArrowUpRight, Check, Copy, ArrowLeft } from "lucide-react";
 import bookmeBlack from "@/assets/images/bookme-logo.png";
-import bookmeWhite from "@/assets/images/bookme-logo-dark.png";
+import bookmeWhite from "@/assets/images/bookme-logo-new.png";
 import bookmeViolet from "@/assets/images/bookme-logo-violet.png";
 import bookmeClearspace from "@/assets/images/bookme-clearspace.png";
 import bookmeHero from "@/assets/images/bookme-hero.jpg";

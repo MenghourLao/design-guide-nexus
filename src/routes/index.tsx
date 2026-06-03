@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-import bookmeWhite from "@/assets/images/bookme-logo-dark.png";
+import bookmeWhite from "@/assets/images/bookme-logo-new.png";
 import bookmeHero from "@/assets/images/bookme-hero.jpg";
 
 export const Route = createFileRoute("/")({
