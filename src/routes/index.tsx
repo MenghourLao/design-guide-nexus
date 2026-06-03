@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 import bookmeBlack from "@/assets/images/bookme-logo.png";
 
 export const Route = createFileRoute("/")({
@@ -36,11 +37,25 @@ const cards = [
   },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 18 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] as const, delay: i * 0.08 },
+  }),
+};
+
 function Home() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
-      <header className="border-b border-border bg-background sticky top-0 z-40">
+      <motion.header
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
+        className="border-b border-border bg-background sticky top-0 z-40"
+      >
         <div className="max-w-6xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
           <img src={bookmeBlack} alt="BookMe+" className="h-6 w-auto" />
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -50,72 +65,112 @@ function Home() {
             </span>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       {/* Hero */}
       <div className="max-w-6xl mx-auto px-6 lg:px-10 pt-20 pb-12">
-        <div className="text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--brand)] mb-6">
+        <motion.div
+          custom={0}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--brand)] mb-6"
+        >
           Design Hub
-        </div>
-        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.05]">
+        </motion.div>
+        <motion.h1
+          custom={1}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.05]"
+        >
           BookMe+<br />
           <span className="text-muted-foreground font-light">Design Guidelines</span>
-        </h1>
-        <p className="mt-6 text-base text-muted-foreground max-w-xl leading-relaxed">
+        </motion.h1>
+        <motion.p
+          custom={2}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="mt-6 text-base text-muted-foreground max-w-xl leading-relaxed"
+        >
           One place for every visual standard — from brand identity to product tokens.
           Built for the UX/UI team and anyone working with the BookMe+ brand.
-        </p>
-        <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">
+        </motion.p>
+        <motion.div
+          custom={3}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="mt-4 flex items-center gap-4 text-xs text-muted-foreground"
+        >
           <span>{VERSION}</span>
           <span className="w-1 h-1 rounded-full bg-border" />
           <span>Updated {LAST_UPDATED}</span>
-        </div>
+        </motion.div>
       </div>
 
       {/* Cards */}
       <div className="max-w-6xl mx-auto px-6 lg:px-10 pb-24 grid grid-cols-1 md:grid-cols-2 gap-5">
-        {cards.map((card) => (
-          <Link
+        {cards.map((card, i) => (
+          <motion.div
             key={card.to}
-            to={card.to}
-            className="rounded-2xl border border-border bg-card p-7 flex flex-col hover:border-foreground/30 transition-colors"
+            custom={i + 4}
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            whileHover={{ y: -3, transition: { duration: 0.2, ease: "easeOut" } }}
           >
-            <div className="text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--brand)] mb-3">
-              {card.eyebrow}
-            </div>
-            <h2 className="text-xl font-bold tracking-tight text-foreground mb-3">
-              {card.title}
-            </h2>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
-              {card.description}
-            </p>
+            <Link
+              to={card.to}
+              className="rounded-2xl border border-border bg-card p-7 flex flex-col h-full hover:border-foreground/30 transition-colors"
+            >
+              <div className="text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--brand)] mb-3">
+                {card.eyebrow}
+              </div>
+              <h2 className="text-xl font-bold tracking-tight text-foreground mb-3">
+                {card.title}
+              </h2>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
+                {card.description}
+              </p>
 
-            <div className="flex flex-wrap gap-2 mb-6">
-              {card.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs px-2.5 py-1 rounded-full border border-border text-foreground/60"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {card.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs px-2.5 py-1 rounded-full border border-border text-foreground/60"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
 
-            <div className="flex items-center justify-between text-sm font-medium text-foreground border-t pt-5 mt-auto" style={{ borderColor: "#f2f2f2" }}>
-              <span>Open guidelines</span>
-              <ArrowUpRight size={15} className="text-muted-foreground" />
-            </div>
-          </Link>
+              <div
+                className="flex items-center justify-between text-sm font-medium text-foreground border-t pt-5 mt-auto"
+                style={{ borderColor: "#f2f2f2" }}
+              >
+                <span>Open guidelines</span>
+                <ArrowUpRight size={15} className="text-muted-foreground" />
+              </div>
+            </Link>
+          </motion.div>
         ))}
       </div>
 
       {/* Footer */}
-      <div className="mt-auto border-t border-border">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        className="mt-auto border-t border-border"
+      >
         <div className="max-w-6xl mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
           <span>© {new Date().getFullYear()} BookMe+ · UX/UI Team</span>
           <span>{VERSION} · {LAST_UPDATED}</span>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
