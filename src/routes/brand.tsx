@@ -79,7 +79,7 @@ function Guidelines() {
     <div className="min-h-screen bg-background">
       {/* Top bar */}
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur border-b border-border">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+        <div className="px-6 lg:px-10 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition mr-2">
               <ArrowLeft size={14} />
@@ -103,7 +103,7 @@ function Guidelines() {
         <img src={bookmeHero} alt="BookMe+ Design" className="w-full h-auto block" />
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-10 gap-10 pt-12">
+      <div className="px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-10 gap-10 pt-12">
         {/* Sidebar — 30% */}
         <aside className="lg:col-span-3">
           <div className="lg:sticky lg:top-24">

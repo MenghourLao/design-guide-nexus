@@ -49,7 +49,7 @@ function ProductSpec() {
     <div className="min-h-screen bg-background">
       {/* Top bar */}
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur border-b border-border">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+        <div className="px-6 lg:px-10 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img src={bookmeBlack} alt="BookMe+" className="h-6 w-auto" />
             <span className="hidden sm:inline text-xs text-muted-foreground border-l border-border pl-3 ml-1">
@@ -63,7 +63,7 @@ function ProductSpec() {
         </div>
       </header>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-10 gap-10 pt-12 pb-20">
+      <div className="px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-10 gap-10 pt-12 pb-20">
         {/* Sidebar */}
         <aside className="lg:col-span-3">
           <div className="lg:sticky lg:top-24">

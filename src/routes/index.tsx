@@ -56,7 +56,7 @@ function Home() {
         transition={{ duration: 0.35, ease: "easeOut" }}
         className="border-b border-border bg-background sticky top-0 z-40"
       >
-        <div className="max-w-6xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+        <div className="px-6 lg:px-10 h-16 flex items-center justify-between">
           <img src={bookmeBlack} alt="BookMe+" className="h-6 w-auto" />
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
             <span className="hidden md:inline">Maintained by</span>
@@ -68,7 +68,7 @@ function Home() {
       </motion.header>
 
       {/* Hero */}
-      <div className="max-w-6xl mx-auto px-6 lg:px-10 pt-20 pb-12">
+      <div className="px-6 lg:px-10 pt-20 pb-12">
         <motion.div
           custom={0}
           variants={fadeUp}
@@ -112,7 +112,7 @@ function Home() {
       </div>
 
       {/* Cards */}
-      <div className="max-w-6xl mx-auto px-6 lg:px-10 pb-24 grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="px-6 lg:px-10 pb-24 grid grid-cols-1 md:grid-cols-2 gap-5">
         {cards.map((card, i) => (
           <motion.div
             key={card.to}
@@ -166,7 +166,7 @@ function Home() {
         transition={{ duration: 0.5, delay: 0.6 }}
         className="mt-auto border-t border-border"
       >
-        <div className="max-w-6xl mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
+        <div className="px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
           <span>© {new Date().getFullYear()} BookMe+ · UX/UI Team</span>
           <span>{VERSION} · {LAST_UPDATED}</span>
         </div>
