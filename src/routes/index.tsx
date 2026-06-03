@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import bookmeBlack from "@/assets/images/bookme-logo.png";
+import bookmeHero from "@/assets/images/bookme-hero.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -67,8 +68,18 @@ function Home() {
         </div>
       </motion.header>
 
+      {/* Hero image */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full"
+      >
+        <img src={bookmeHero} alt="BookMe+ Design" className="w-full h-auto block" />
+      </motion.div>
+
       {/* Hero */}
-      <div className="px-6 lg:px-10 pt-20 pb-12">
+      <div className="px-6 lg:px-10 pt-14 pb-12">
         <motion.div
           custom={0}
           variants={fadeUp}
