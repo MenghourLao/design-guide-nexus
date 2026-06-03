@@ -1,11 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Download, ArrowUpRight, Check, Copy } from "lucide-react";
-import bookmeBlack from "@/assets/bookme-logo.png.asset.json";
-import bookmeWhite from "@/assets/bookme-logo-dark.png.asset.json";
-import bookmeViolet from "@/assets/bookme-logo-violet.png.asset.json";
-import bookmeClearspace from "@/assets/bookme-clearspace.png.asset.json";
-import bookmeHero from "@/assets/bookme-hero.jpg.asset.json";
+import bookmeBlack from "@/assets/images/bookme-logo.png";
+import bookmeWhite from "@/assets/images/bookme-logo-dark.png";
+import bookmeViolet from "@/assets/images/bookme-logo-violet.png";
+import bookmeClearspace from "@/assets/images/bookme-clearspace.png";
+import bookmeHero from "@/assets/images/bookme-hero.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,7 +28,6 @@ const nav = [
   { id: "usage", label: "Brand Usage" },
   { id: "color", label: "Brand Color" },
   { id: "typography", label: "Typography" },
-  { id: "product", label: "Product Specification" },
   { id: "changelog", label: "Changelog" },
 ];
 
@@ -82,7 +81,7 @@ function Guidelines() {
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur border-b border-border">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={bookmeBlack.url} alt="BookMe+" className="h-6 w-auto" />
+            <img src={bookmeBlack} alt="BookMe+" className="h-6 w-auto" />
             <span className="hidden sm:inline text-xs text-muted-foreground border-l border-border pl-3 ml-1">
               Brand Guidelines
             </span>
@@ -96,7 +95,7 @@ function Guidelines() {
 
       {/* Full-width hero */}
       <div id="overview-hero" className="w-full">
-        <img src={bookmeHero.url} alt="BookMe+ Design" className="w-full h-auto block" />
+        <img src={bookmeHero} alt="BookMe+ Design" className="w-full h-auto block" />
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-10 gap-10 pt-12">
@@ -106,20 +105,31 @@ function Guidelines() {
             <div className="rounded-2xl border border-border p-6 bg-card">
               <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-4">Quick Links</div>
               <nav className="flex flex-col">
-                {nav.map((n) => (
-                  <a
-                    key={n.id}
-                    href={`#${n.id}`}
-                    className={`group flex items-center justify-between py-2.5 px-3 -mx-3 rounded-lg text-sm transition ${
-                      active === n.id
-                        ? "bg-[color:var(--brand-lighter)] text-[color:var(--brand-darker)] font-semibold"
-                        : "text-foreground/70 hover:text-foreground hover:bg-muted"
-                    }`}
-                  >
-                    <span>{n.label}</span>
-                    <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-60 transition" />
-                  </a>
-                ))}
+                {nav.map((n) =>
+                  n.id === "product" ? (
+                    <Link
+                      key={n.id}
+                      to="/product"
+                      className="group flex items-center justify-between py-2.5 px-3 -mx-3 rounded-lg text-sm transition text-foreground/70 hover:text-foreground hover:bg-muted"
+                    >
+                      <span>{n.label}</span>
+                      <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-60 transition" />
+                    </Link>
+                  ) : (
+                    <a
+                      key={n.id}
+                      href={`#${n.id}`}
+                      className={`group flex items-center justify-between py-2.5 px-3 -mx-3 rounded-lg text-sm transition ${
+                        active === n.id
+                          ? "bg-[color:var(--brand-lighter)] text-[color:var(--brand-darker)] font-semibold"
+                          : "text-foreground/70 hover:text-foreground hover:bg-muted"
+                      }`}
+                    >
+                      <span>{n.label}</span>
+                      <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-60 transition" />
+                    </a>
+                  )
+                )}
               </nav>
 
               <div className="mt-6 pt-6 border-t border-border space-y-1.5">
@@ -135,7 +145,7 @@ function Guidelines() {
             </div>
 
             <a
-              href={bookmeBlack.url}
+              href={bookmeBlack}
               download
               className="mt-4 flex items-center justify-between rounded-2xl px-5 py-4 bg-[color:var(--brand)] text-white hover:bg-[color:var(--brand-darker)] transition"
             >
@@ -174,22 +184,39 @@ function Guidelines() {
               momentum, while the violet "+" anchors it to our brand color.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="rounded-2xl border border-border bg-white aspect-[4/3] flex items-center justify-center p-8">
-                <img src={bookmeBlack.url} alt="BookMe+ on white" className="max-h-16 w-auto" />
+            <div className="flex flex-col gap-4">
+              <div className="rounded-2xl overflow-hidden border border-border">
+                <div className="flex items-center justify-center px-16 py-10" style={{ background: "#111111" }}>
+                  <img src={bookmeWhite} alt="BookMe+ — Dark" className="w-full max-w-md h-auto" />
+                </div>
+                <div className="px-5 py-3 bg-card border-t border-border">
+                  <span className="text-xs text-muted-foreground">Dark — for use on dark surfaces</span>
+                </div>
               </div>
-              <div className="rounded-2xl aspect-[4/3] flex items-center justify-center p-8" style={{ background: "#1f1f1f" }}>
-                <img src={bookmeWhite.url} alt="BookMe+ on black" className="max-h-16 w-auto" />
+
+              <div className="rounded-2xl overflow-hidden border border-border">
+                <div className="flex items-center justify-center px-16 py-10" style={{ background: "#6444d8" }}>
+                  <img src={bookmeViolet} alt="BookMe+ — Violet" className="w-full max-w-md h-auto" />
+                </div>
+                <div className="px-5 py-3 bg-card border-t border-border">
+                  <span className="text-xs text-muted-foreground">Violet — for use on brand-colored surfaces</span>
+                </div>
               </div>
-              <div className="rounded-2xl aspect-[4/3] flex items-center justify-center p-8" style={{ background: "#6444d8" }}>
-                <img src={bookmeViolet.url} alt="BookMe+ on violet" className="max-h-16 w-auto" />
+
+              <div className="rounded-2xl overflow-hidden border border-border">
+                <div className="flex items-center justify-center px-16 py-10 bg-white">
+                  <img src={bookmeBlack} alt="BookMe+ — Light" className="w-full max-w-md h-auto" />
+                </div>
+                <div className="px-5 py-3 bg-card border-t border-border">
+                  <span className="text-xs text-muted-foreground">Light — for use on white or light surfaces</span>
+                </div>
               </div>
             </div>
 
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="rounded-2xl border border-border p-6 bg-card">
                 <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground mb-3">Clear Space</div>
-                <img src={bookmeClearspace.url} alt="Clear space" className="w-full rounded-lg border border-border" />
+                <img src={bookmeClearspace} alt="Clear space" className="w-full rounded-lg border border-border" />
                 <p className="mt-3 text-sm text-muted-foreground">
                   Maintain padding equal to the height of the "B" on all sides.
                 </p>
@@ -203,7 +230,7 @@ function Guidelines() {
                   ].map((f) => (
                     <a
                       key={f.fmt}
-                      href={bookmeBlack.url}
+                      href={bookmeBlack}
                       download
                       className="flex items-center justify-between rounded-xl border border-border px-4 py-3.5 hover:border-[color:var(--brand)] hover:bg-[color:var(--brand-lighter)]/50 transition"
                     >
@@ -402,7 +429,7 @@ function Guidelines() {
           </Section>
 
           {/* Product Specification */}
-          <Section id="product" eyebrow="04 — Brand Element" title="Product Setup Specification">
+          <Section id="product" eyebrow="04 — Brand Element" title="Setup Specification">
             <p className="text-base text-muted-foreground max-w-2xl mb-8">
               Foundational tokens used across all product surfaces. Keep these consistent in Figma
               and code to maintain a unified experience.
