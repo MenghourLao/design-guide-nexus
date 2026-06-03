@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import bookmeWhite from "@/assets/images/bookme-logo-new.png";
 
 export const Route = createFileRoute("/product")({
@@ -26,11 +28,13 @@ const sections = [
 
 function Token({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (
-    <div className="rounded-2xl border border-border p-5 bg-card">
-      <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground">{label}</div>
-      <div className="mt-2 text-xl font-bold text-foreground">{value}</div>
-      {sub && <div className="mt-1 text-sm text-muted-foreground">{sub}</div>}
-    </div>
+    <Card className="shadow-none rounded-2xl">
+      <CardContent className="pt-5">
+        <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground">{label}</div>
+        <div className="mt-2 text-xl font-bold text-foreground">{value}</div>
+        {sub && <div className="mt-1 text-sm text-muted-foreground">{sub}</div>}
+      </CardContent>
+    </Card>
   );
 }
 
@@ -72,7 +76,8 @@ function ProductSpec() {
         {/* Sidebar */}
         <aside className="lg:col-span-3">
           <div className="lg:sticky lg:top-24">
-            <div className="rounded-2xl border border-border p-6 bg-card">
+            <Card className="shadow-none rounded-2xl">
+              <CardContent className="pt-6">
               <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-4">On this page</div>
               <nav className="flex flex-col">
                 {sections.map((n) => (
@@ -87,7 +92,8 @@ function ProductSpec() {
                 ))}
               </nav>
 
-              <div className="mt-6 pt-6 border-t border-border space-y-1.5">
+              <Separator className="my-6" />
+              <div className="space-y-1.5">
                 <div className="flex justify-between text-xs">
                   <span className="text-muted-foreground">Version</span>
                   <span className="font-mono font-medium text-foreground">{VERSION}</span>
@@ -97,7 +103,8 @@ function ProductSpec() {
                   <span className="font-medium text-foreground">June 2, 2026</span>
                 </div>
               </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </aside>
 
@@ -343,7 +350,8 @@ function ProductSpec() {
             </div>
           </section>
 
-          <footer className="pt-8 border-t border-border text-center text-xs text-muted-foreground">
+          <Separator />
+          <footer className="pt-8 text-center text-xs text-muted-foreground">
             © {new Date().getFullYear()} BookMe+ · Maintained by the UX/UI Team · {VERSION}
           </footer>
         </main>

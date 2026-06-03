@@ -1,6 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Download, ArrowUpRight, Check, Copy, ArrowLeft } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import bookmeBlack from "@/assets/images/bookme-logo.png";
 import bookmeWhite from "@/assets/images/bookme-logo-new.png";
 import bookmeViolet from "@/assets/images/bookme-logo-violet.png";
@@ -105,55 +109,56 @@ function Guidelines() {
         {/* Sidebar — 30% */}
         <aside className="lg:col-span-3">
           <div className="lg:sticky lg:top-24">
-            <div className="rounded-2xl border border-border p-6 bg-card">
-              <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-4">Quick Links</div>
-              <nav className="flex flex-col">
-                {nav.map((n) => (
-                  <a
-                    key={n.id}
-                    href={`#${n.id}`}
-                    className={`group flex items-center justify-between py-2.5 px-3 -mx-3 rounded-lg text-sm transition ${
-                      active === n.id
-                        ? "bg-[color:var(--brand-lighter)] text-[color:var(--brand-darker)] font-semibold"
-                        : "text-foreground/70 hover:text-foreground hover:bg-muted"
-                    }`}
+            <Card className="shadow-none rounded-2xl">
+              <CardContent className="pt-6">
+                <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-4">Quick Links</div>
+                <nav className="flex flex-col">
+                  {nav.map((n) => (
+                    <a
+                      key={n.id}
+                      href={`#${n.id}`}
+                      className={`group flex items-center justify-between py-2.5 px-3 -mx-3 rounded-lg text-sm transition ${
+                        active === n.id
+                          ? "bg-[color:var(--brand-lighter)] text-[color:var(--brand-darker)] font-semibold"
+                          : "text-foreground/70 hover:text-foreground hover:bg-muted"
+                      }`}
+                    >
+                      <span>{n.label}</span>
+                      <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-60 transition" />
+                    </a>
+                  ))}
+                  <Separator className="my-2" />
+                  <Link
+                    to="/product"
+                    className="group flex items-center justify-between py-2.5 px-3 -mx-3 rounded-lg text-sm transition text-foreground/70 hover:text-foreground hover:bg-muted"
                   >
-                    <span>{n.label}</span>
+                    <span>Product Setup Specification</span>
                     <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-60 transition" />
-                  </a>
-                ))}
-                <Link
-                  to="/product"
-                  className="group flex items-center justify-between py-2.5 px-3 -mx-3 rounded-lg text-sm transition text-foreground/70 hover:text-foreground hover:bg-muted mt-1 border-t border-border pt-3"
-                >
-                  <span>Product Setup Specification</span>
-                  <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-60 transition" />
-                </Link>
-              </nav>
-
-              <div className="mt-6 pt-6 border-t border-border space-y-1.5">
-                <div className="flex justify-between text-xs">
-                  <span className="text-muted-foreground">Version</span>
-                  <span className="font-mono font-medium text-foreground">{VERSION}</span>
+                  </Link>
+                </nav>
+                <Separator className="my-4" />
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-muted-foreground">Version</span>
+                    <span className="font-mono font-medium text-foreground">{VERSION}</span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-muted-foreground">Last update</span>
+                    <span className="font-medium text-foreground">{LAST_UPDATED}</span>
+                  </div>
                 </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-muted-foreground">Last update</span>
-                  <span className="font-medium text-foreground">{LAST_UPDATED}</span>
-                </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
 
-            <a
-              href={bookmeBlack}
-              download
-              className="mt-4 flex items-center justify-between rounded-2xl px-5 py-4 bg-[color:var(--brand)] text-white hover:bg-[color:var(--brand-darker)] transition"
-            >
-              <div>
-                <div className="text-sm font-semibold">Download all assets</div>
-                <div className="text-xs text-white/80">Logos · SVG · PNG</div>
-              </div>
-              <Download size={20} />
-            </a>
+            <Button asChild className="mt-4 w-full rounded-2xl h-auto py-4 justify-between">
+              <a href={bookmeBlack} download>
+                <div className="text-left">
+                  <div className="text-sm font-semibold">Download all assets</div>
+                  <div className="text-xs opacity-80">Logos · SVG · PNG</div>
+                </div>
+                <Download size={20} />
+              </a>
+            </Button>
           </div>
         </aside>
 
@@ -258,7 +263,7 @@ function Guidelines() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="rounded-2xl border border-border p-6 bg-card">
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="text-xs font-bold px-2 py-0.5 rounded bg-[color:var(--brand-lighter)] text-[color:var(--brand-darker)]">DO</span>
+                  <Badge className="bg-[color:var(--brand-lighter)] text-[color:var(--brand-darker)] hover:bg-[color:var(--brand-lighter)] shadow-none">DO</Badge>
                   <span className="text-sm font-semibold text-foreground">Recommended</span>
                 </div>
                 <ul className="space-y-3 text-sm text-foreground/80">
@@ -279,7 +284,7 @@ function Guidelines() {
 
               <div className="rounded-2xl border border-border p-6 bg-card">
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="text-xs font-bold px-2 py-0.5 rounded bg-red-50 text-red-600">DON'T</span>
+                  <Badge variant="destructive" className="shadow-none">DON'T</Badge>
                   <span className="text-sm font-semibold text-foreground">Avoid</span>
                 </div>
                 <ul className="space-y-3 text-sm text-foreground/80">
@@ -445,6 +450,7 @@ function Guidelines() {
             </div>
           </Section>
 
+          <Separator />
           <footer className="py-12 text-center text-xs text-muted-foreground">
             © {new Date().getFullYear()} BookMe+ · Maintained by the UX/UI Team · {VERSION}
           </footer>

@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import bookmeWhite from "@/assets/images/bookme-logo-new.png";
 import bookmeHero from "@/assets/images/bookme-hero.jpg";
 
@@ -71,9 +74,9 @@ function Home() {
             <img src={bookmeWhite} alt="BookMe+" className="h-6 w-auto" />
             <div className="flex items-center gap-2 text-xs text-white/70">
               <span className="hidden md:inline">Maintained by</span>
-              <span className="px-2 py-1 rounded-md bg-white/15 text-white font-medium">
+              <Badge variant="outline" className="bg-white/15 text-white border-white/20 hover:bg-white/20">
                 UX/UI Team
-              </span>
+              </Badge>
             </div>
           </div>
         </motion.header>
@@ -115,10 +118,10 @@ function Home() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="mt-4 flex items-center gap-4 text-xs text-muted-foreground"
+          className="mt-4 flex items-center gap-3 text-xs text-muted-foreground"
         >
           <span>{VERSION}</span>
-          <span className="w-1 h-1 rounded-full bg-border" />
+          <Separator orientation="vertical" className="h-3" />
           <span>Updated {LAST_UPDATED}</span>
         </motion.div>
       </div>
@@ -134,38 +137,27 @@ function Home() {
             animate="show"
             whileHover={{ y: -3, transition: { duration: 0.2, ease: "easeOut" } }}
           >
-            <Link
-              to={card.to}
-              className="rounded-2xl border border-border bg-card p-7 flex flex-col h-full hover:border-foreground/30 transition-colors"
-            >
-              <div className="text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--brand)] mb-3">
-                {card.eyebrow}
-              </div>
-              <h2 className="text-xl font-bold tracking-tight text-foreground mb-3">
-                {card.title}
-              </h2>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
-                {card.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                {card.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs px-2.5 py-1 rounded-full border border-border text-foreground/60"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div
-                className="flex items-center justify-between text-sm font-medium text-foreground border-t pt-5 mt-auto"
-                style={{ borderColor: "#f2f2f2" }}
-              >
-                <span>Open guidelines</span>
-                <ArrowUpRight size={15} className="text-muted-foreground" />
-              </div>
+            <Link to={card.to} className="block h-full">
+              <Card className="flex flex-col h-full hover:border-foreground/30 transition-colors cursor-pointer shadow-none rounded-2xl">
+                <CardHeader className="pb-3">
+                  <p className="text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--brand)] mb-1">
+                    {card.eyebrow}
+                  </p>
+                  <CardTitle className="text-xl font-bold tracking-tight">{card.title}</CardTitle>
+                  <CardDescription className="text-sm leading-relaxed">{card.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-1 pb-4">
+                  <div className="flex flex-wrap gap-2">
+                    {card.tags.map((tag) => (
+                      <Badge key={tag} variant="outline" className="font-normal">{tag}</Badge>
+                    ))}
+                  </div>
+                </CardContent>
+                <CardFooter className="border-t pt-5 flex items-center justify-between" style={{ borderColor: "#f2f2f2" }}>
+                  <span className="text-sm font-medium text-foreground">Open guidelines</span>
+                  <ArrowUpRight size={15} className="text-muted-foreground" />
+                </CardFooter>
+              </Card>
             </Link>
           </motion.div>
         ))}
@@ -176,8 +168,9 @@ function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
-        className="mt-auto border-t border-border"
+        className="mt-auto"
       >
+        <Separator />
         <div className="px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
           <span>© {new Date().getFullYear()} BookMe+ · UX/UI Team</span>
           <span>{VERSION} · {LAST_UPDATED}</span>
