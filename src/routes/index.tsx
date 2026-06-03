@@ -50,35 +50,36 @@ const fadeUp = {
 function Home() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      {/* Header */}
-      <motion.header
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.35, ease: "easeOut" }}
-        className="border-b border-white/10 bg-transparent sticky top-0 z-40"
-      >
-        <div className="px-6 lg:px-10 h-16 flex items-center justify-between">
-          <img src={bookmeWhite} alt="BookMe+" className="h-6 w-auto" />
-          <div className="flex items-center gap-2 text-xs text-white/70">
-            <span className="hidden md:inline">Maintained by</span>
-            <span className="px-2 py-1 rounded-md bg-white/15 text-white font-medium">
-              UX/UI Team
-            </span>
+
+      {/* Hero image with header overlaid */}
+      <div className="relative w-full">
+        <motion.img
+          src={bookmeHero}
+          alt="BookMe+ Design"
+          className="w-full h-auto block"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        />
+        <motion.header
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
+          className="absolute top-0 left-0 right-0 z-40 border-b border-white/10 bg-transparent"
+        >
+          <div className="px-6 lg:px-10 h-16 flex items-center justify-between">
+            <img src={bookmeWhite} alt="BookMe+" className="h-6 w-auto" />
+            <div className="flex items-center gap-2 text-xs text-white/70">
+              <span className="hidden md:inline">Maintained by</span>
+              <span className="px-2 py-1 rounded-md bg-white/15 text-white font-medium">
+                UX/UI Team
+              </span>
+            </div>
           </div>
-        </div>
-      </motion.header>
+        </motion.header>
+      </div>
 
-      {/* Hero image */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full"
-      >
-        <img src={bookmeHero} alt="BookMe+ Design" className="w-full h-auto block" />
-      </motion.div>
-
-      {/* Hero */}
+      {/* Hero text */}
       <div className="px-6 lg:px-10 pt-14 pb-12">
         <motion.div
           custom={0}
