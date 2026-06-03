@@ -78,22 +78,22 @@ function Guidelines() {
   return (
     <div className="min-h-screen bg-background">
       {/* Top bar */}
-      <header className="sticky top-0 z-40 bg-background/80 backdrop-blur border-b border-border">
+      <header className="sticky top-0 z-40 bg-transparent border-b border-white/10">
         <div className="px-6 lg:px-10 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link to="/" className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition mr-2">
+            <Link to="/" className="flex items-center gap-1.5 text-xs text-white/70 hover:text-white transition mr-2">
               <ArrowLeft size={14} />
               <span className="hidden sm:inline">Home</span>
             </Link>
-            <span className="text-border">|</span>
-            <img src={bookmeBlack} alt="BookMe+" className="h-6 w-auto ml-2" />
-            <span className="hidden sm:inline text-xs text-muted-foreground border-l border-border pl-3 ml-1">
+            <span className="text-white/20">|</span>
+            <img src={bookmeWhite} alt="BookMe+" className="h-6 w-auto ml-2" />
+            <span className="hidden sm:inline text-xs text-white/60 border-l border-white/20 pl-3 ml-1">
               Brand Guidelines
             </span>
           </div>
-          <div className="flex items-center gap-3 text-xs text-muted-foreground">
+          <div className="flex items-center gap-3 text-xs text-white/70">
             <span className="hidden md:inline">Maintained by</span>
-            <span className="px-2 py-1 rounded-md bg-[color:var(--brand-lighter)] text-[color:var(--brand-darker)] font-medium">UX/UI Team</span>
+            <span className="px-2 py-1 rounded-md bg-white/15 text-white font-medium">UX/UI Team</span>
           </div>
         </div>
       </header>

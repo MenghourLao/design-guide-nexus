@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-import bookmeBlack from "@/assets/images/bookme-logo.png";
+import bookmeWhite from "@/assets/images/bookme-logo-dark.png";
 import bookmeHero from "@/assets/images/bookme-hero.jpg";
 
 export const Route = createFileRoute("/")({
@@ -55,13 +55,13 @@ function Home() {
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: "easeOut" }}
-        className="border-b border-border bg-background sticky top-0 z-40"
+        className="border-b border-white/10 bg-transparent sticky top-0 z-40"
       >
         <div className="px-6 lg:px-10 h-16 flex items-center justify-between">
-          <img src={bookmeBlack} alt="BookMe+" className="h-6 w-auto" />
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <img src={bookmeWhite} alt="BookMe+" className="h-6 w-auto" />
+          <div className="flex items-center gap-2 text-xs text-white/70">
             <span className="hidden md:inline">Maintained by</span>
-            <span className="px-2 py-1 rounded-md bg-[color:var(--brand-lighter)] text-[color:var(--brand-darker)] font-medium">
+            <span className="px-2 py-1 rounded-md bg-white/15 text-white font-medium">
               UX/UI Team
             </span>
           </div>
