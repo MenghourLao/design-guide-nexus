@@ -183,8 +183,8 @@ function Home() {
       </div>
 
       {/* Footer */}
-      <Reveal as="footer" className="mt-auto bg-[color:var(--brand)] text-white">
-        <div className="px-6 lg:px-10 py-20 flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between border-b border-white/15">
+      <Reveal as="footer" className="mt-auto bg-zinc-950 text-white">
+        <div className="px-6 lg:px-10 py-10 flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between border-b border-white/15">
           <span className="text-sm text-white/70">
             © {new Date().getFullYear()} BookMe+ · UX/UI Team
           </span>
@@ -226,8 +226,8 @@ function Home() {
           </div>
         </div>
 
-        <div className="px-6 lg:px-10 py-16 sm:py-24 overflow-hidden">
-          <h2 className="font-extrabold tracking-tight leading-[0.9] text-[clamp(3rem,15vw,11rem)] whitespace-nowrap">
+        <div className="px-6 lg:px-10 py-8 sm:py-10 overflow-hidden">
+          <h2 className="font-extrabold tracking-tight leading-[0.9] text-[clamp(2rem,9vw,6rem)] whitespace-nowrap">
             BookMe+ Design
           </h2>
         </div>
